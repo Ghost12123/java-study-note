@@ -1,4 +1,4 @@
-package com.blank.study.other.guava;
+package com.blank.study.other.guava.code;
 
 import com.blank.study.other.guava.util.ObjectCheckUtil;
 import com.google.common.base.Joiner;
