@@ -1,4 +1,4 @@
-package com.blank.study.other.guava.util;
+package com.blank.study.third.guava.util;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 

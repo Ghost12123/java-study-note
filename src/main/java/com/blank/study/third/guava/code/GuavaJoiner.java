@@ -1,6 +1,6 @@
-package com.blank.study.other.guava.code;
+package com.blank.study.third.guava.code;
 
-import com.blank.study.other.guava.util.ObjectCheckUtil;
+import com.blank.study.third.guava.util.ObjectCheckUtil;
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableMap;
 
