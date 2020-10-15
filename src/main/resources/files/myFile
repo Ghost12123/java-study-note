@@ -1,0 +1,20 @@
+	/**
+	 * 需求
+	 * 1.能够通过用户id获取到用户排名
+	 * 2.能够通过排名获取用户信息
+	 * 3.排名更新频繁
+	 */
+	/**
+	 * 设计
+	 * DB-一张成绩表（主键、用户id、成绩、排名、更新时间）
+	 * Redis-用"score_xxx"作为key,用成绩作为value 有效期65分钟
+	 * Redis-用"score_update"作为key,用排名更新时间作为key
+	 * ConcurrentHashMap-程序缓存容器
+	 *
+	 * 读写分离
+	 * 1.用户游戏结束后，将用户id和成绩写入redis缓存,例如: score_001 = 203
+	 * 2.设置定时器，每隔1小时，从redis取出"score_xxx"缓存，计算排名，将排名信息写入DB, 将更新时间写入redis缓存
+	 * 3.用户请求排名展示接口：
+	 *      （1）从redis取出"score_update",如果时间为空,或者更新时间+1hour<当前时间, 返回ConcurrentHashMap
+	 *      （2）否则,查询DB,并写入ConcurrentHashMap,再返回
+	 */
